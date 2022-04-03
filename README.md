@@ -20,4 +20,4 @@ To add a new directory alias, in tsconfig.json add a new path the same way as th
 - `@core` should export things that can be reused across any project to setup the environment
 - `@utils` should export helper functions these may or may not be specific to the project
 - `@classes` should export classes that may or may not be specific to the project (e.g. a helper class to manage InstancedMesh with varying colors for each point).
-- `@controller` should be project specific, coordinating the other classes and functions to build the project.
+- `@controllers` should be project specific, coordinating the other classes and functions to build the project.
