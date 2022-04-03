@@ -22,7 +22,9 @@
     "baseUrl": ".",
     "paths": {
       "@classes/*": ["./src/classes/*"],
-      "@core/*": ["./src/core/*"]
+      "@controllers/*": ["./src/controllers/*"],
+      "@core/*": ["./src/core/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "exclude": [".git", "node_modules"],

@@ -61,6 +61,8 @@ export class World {
   private _interval = 30 / 1000;
   private _delta = 0;
 
+  private _animations: ((time: number) => void)[] = [];
+
   constructor(config: IWorld) {
     this._init(config);
   }
@@ -150,6 +152,7 @@ export class World {
     this._delta += this.clock.getDelta();
 
     if (this._delta > this._interval) {
+      this._animations.forEach(animation => animation(this.clock.elapsedTime));
       this.renderer.render(this.scene, this.camera);
       this._delta = this._delta % this._interval;
     }
@@ -160,5 +163,11 @@ export class World {
     this.camera.updateProjectionMatrix();
 
     this.renderer.setSize(window.innerWidth, window.innerHeight);
+  };
+
+  public animation = {
+    add: (fn: (elapsed: number) => void) => {
+      this._animations.push(fn);
+    },
   };
 }

@@ -3,17 +3,22 @@ import {createRoot} from 'react-dom/client';
 import './styles.css';
 
 import {World} from '@core/scene/World';
+import {Waves} from '@controllers/Waves';
 
 export const App: React.FC = () => {
   const sceneRef = useRef(null);
 
   useEffect(() => {
+    if (!sceneRef.current) return;
+
     // Initialize the world once the DOM element is available
-    sceneRef.current &&
-      new World({
-        renderer: {containerId: 'app'},
-        scene: {axesHelper: true},
-      });
+    const world = new World({
+      renderer: {containerId: 'app'},
+      scene: {axesHelper: false},
+    });
+
+    // Load project into the world
+    Waves.load(world);
   }, [sceneRef.current]);
 
   return (
