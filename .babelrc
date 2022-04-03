@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "@classes": "./src/classes",
+          "@core": "./src/core"
+        }
+      }
+    ]
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "three-template",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "author": "Steve Richardson",
+  "license": "",
+  "scripts": {
+    "build": "parcel build src/index.html -d build --no-source-maps",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "npm run lint -- --fix",
+    "start": "parcel src/index.html -d ./build --no-source-maps --port 2000 & open http://localhost:2000",
+    "format": "prettier --write \"src/**/*.{ts,js,tsx,jsx}\""
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.2.2",
+    "three": "^0.139.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "@types/three": "^0.139.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "parcel-bundler": "^1.12.5",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
+  "browserslist": [
+    "last 3 and_chr versions",
+    "last 3 chrome versions",
+    "last 3 opera versions",
+    "last 3 ios_saf versions",
+    "last 3 safari versions"
+  ]
+}
