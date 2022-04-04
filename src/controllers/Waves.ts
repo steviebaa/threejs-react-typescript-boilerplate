@@ -1,8 +1,8 @@
 import {GridHelper, LineBasicMaterial, MeshBasicMaterial, Vector3} from 'three';
 import {World} from '@core/setup/World';
 import {Wave} from '@classes/Wave';
-import {createLinearPoints} from '@utils/points';
 import {Fence} from '@classes/Fence';
+import {createLinearPoints} from '@utils/points';
 
 export class Waves {
   constructor(private world: World) {

@@ -1,9 +1,9 @@
 import {PerspectiveCamera, WebGLRenderer, Clock, Scene} from 'three';
-import {Controls, IControlsOptions} from '@core/setup/Controls';
 import {OrbitControls as ThreeOrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {Camera, ICameraOptions} from '@core/setup/Camera';
+import {Controls, IControlsOptions} from '@core/setup/Controls';
 import {IRendererOptions, Renderer} from '@core/setup/Renderer';
-import {IThreeScene, ThreeScene} from './ThreeScene';
+import {IThreeScene, ThreeScene} from '@core/setup/ThreeScene';
 
 export interface IWorld {
   renderer: IRendererOptions;
