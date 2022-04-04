@@ -25,8 +25,8 @@ export class Waves {
     const waveLength = 10;
 
     // Create points along line
-    const entryWavePoints = createLinearPoints(-waveLength, 0, 0.1);
-    const exitWavePoints = createLinearPoints(0, waveLength, 0.1);
+    const entryWavePoints = createLinearPoints(-waveLength, 0, 0.03);
+    const exitWavePoints = createLinearPoints(0, waveLength, 0.03);
 
     // Create wave material
     const material = new LineBasicMaterial({color: 0x448aff});
@@ -40,13 +40,26 @@ export class Waves {
     // Add waves to scene
     world.scene.add(entryWave.mesh, exitWave.mesh);
 
+    const animationProps = {
+      speed: 1,
+      period: 1,
+      amplitude: 1,
+    };
+
+    const folder = world.gui.addFolder('Multipliers');
+    folder.add(animationProps, 'speed', 0, 4);
+    folder.add(animationProps, 'period', 0, 4);
+    folder.add(animationProps, 'amplitude', 0, 4);
+
     world.animation.add((elapsed: number) => {
       // Angles
-      const waveAngle = -elapsed * 2;
+      const waveAngle = -elapsed * 2 * animationProps.speed;
       const rotationAngle = waveAngle / 2;
 
       // Helper
-      const getPtY = (pt: Vector3) => Math.sin(waveAngle + Math.PI * pt.x);
+      const getPtY = (pt: Vector3) =>
+        Math.sin(waveAngle + (Math.PI / animationProps.period) * pt.x) *
+        animationProps.amplitude;
 
       /** Wave one adjustments */
       // Positions

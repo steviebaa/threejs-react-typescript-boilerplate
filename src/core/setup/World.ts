@@ -1,3 +1,4 @@
+import GUI from 'lil-gui';
 import {PerspectiveCamera, WebGLRenderer, Clock, Scene} from 'three';
 import {OrbitControls as ThreeOrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {Camera, ICameraOptions} from '@core/setup/Camera';
@@ -11,6 +12,8 @@ export interface IWorld {
   controls?: IControlsOptions;
   scene?: IThreeScene;
 
+  gui?: boolean;
+
   animate?: {
     /** Defaults to 30fps */
     fps?: number;
@@ -23,6 +26,8 @@ export class World {
   public camera: PerspectiveCamera;
   public controls: ThreeOrbitControls;
   public readonly clock = new Clock();
+  /** https://lil-gui.georgealways.com */
+  public gui: GUI;
 
   private _interval = 30 / 1000;
   private _delta = 0;
@@ -42,6 +47,9 @@ export class World {
       this.renderer,
       options.controls ?? {},
     );
+
+    // GUI
+    this.gui = options.gui && new GUI();
 
     // Add resize handler
     window.addEventListener('resize', this.handleWindowResize);

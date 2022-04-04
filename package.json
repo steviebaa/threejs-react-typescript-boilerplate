@@ -13,6 +13,7 @@
     "format": "prettier --write \"src/**/*.{ts,js,tsx,jsx}\""
   },
   "dependencies": {
+    "lil-gui": "^0.16.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.2.2",

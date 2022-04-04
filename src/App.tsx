@@ -15,6 +15,7 @@ export const App: React.FC = () => {
     const world = new World({
       renderer: {containerId: 'app'},
       scene: {axesHelper: false},
+      gui: true,
     });
 
     // Load project into the world
