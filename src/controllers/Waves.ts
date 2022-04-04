@@ -1,20 +1,27 @@
 import {GridHelper, LineBasicMaterial, MeshBasicMaterial, Vector3} from 'three';
-import {World} from '@core/scene/World';
+import {World} from '@core/setup/World';
 import {Wave} from '@classes/Wave';
 import {createLinearPoints} from '@utils/points';
 import {Fence} from '@classes/Fence';
 
 export class Waves {
-  static load(world: World) {
-    Waves.addWaves(world);
-    Waves.addFence(world);
+  constructor(private world: World) {
+    this.load();
+  }
+
+  private load = () => {
+    const {world} = this;
+    this.addWaves();
+    this.addFence();
 
     const gridHelper = new GridHelper(10, 10);
     gridHelper.position.set(0, -1, 0);
     world.scene.add(gridHelper);
-  }
+  };
 
-  static addWaves(world: World) {
+  private addWaves() {
+    const {world} = this;
+
     const waveLength = 10;
 
     // Create points along line
@@ -55,7 +62,9 @@ export class Waves {
     });
   }
 
-  static addFence(world: World) {
+  private addFence() {
+    const {world} = this;
+
     const fence = new Fence({
       position: new Vector3(0, 0, -1),
       material: new MeshBasicMaterial({

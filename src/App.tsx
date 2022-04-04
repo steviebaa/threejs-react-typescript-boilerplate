@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import {createRoot} from 'react-dom/client';
 import './styles.css';
 
-import {World} from '@core/scene/World';
+import {World} from '@core/setup/World';
 import {Waves} from '@controllers/Waves';
 
 export const App: React.FC = () => {
@@ -18,7 +18,7 @@ export const App: React.FC = () => {
     });
 
     // Load project into the world
-    Waves.load(world);
+    new Waves(world);
   }, [sceneRef.current]);
 
   return (
